@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fibonacci
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fibonacci
+  template:
+    metadata:
+      labels:
+        app: fibonacci
+    spec:
+      containers:
+      - name: fibonacci
+        image: rcpiregistry.azurecr.io/fibonacci:v1
+        ports:
+        - containerPort: 8000
